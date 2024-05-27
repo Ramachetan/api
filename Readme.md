@@ -2,6 +2,9 @@
 
 This is a full-stack web application with a Python backend and a JavaScript frontend.
 
+![image](https://github.com/Ramachetan/api/assets/24260211/00679b68-122c-4069-aeb8-4591b6b18e25)
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
