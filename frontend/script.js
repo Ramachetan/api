@@ -77,5 +77,35 @@ function showMessage(message) {
     }, 3000);
 }
 
+function searchItems() {
+    var query = document.getElementById('searchQuery').value;
+    fetch('http://localhost:8000/items/search/' + encodeURIComponent(query)) // Ensure this URL is correct
+        .then(response => response.json())
+        .then(data => {
+            var itemsList = document.getElementById('itemsList'); // Corrected ID
+            itemsList.innerHTML = ''; // Clear current items
+
+            if (data.length === 0) {
+                // No items found
+                itemsList.innerHTML = '<p>Item not found</p>';
+            } else {
+                // Display search results
+                data.forEach(item => {
+                    var itemElement = document.createElement('div');
+                    itemElement.className = 'item'; // Add class for styling
+                    itemElement.innerHTML = `<span>${item.name} - $${item.price.toFixed(2)}</span>`;
+                    itemsList.appendChild(itemElement);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            var itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '<p>Error fetching search results</p>';
+        });
+}
+
+
+
 // Fetch items when the page loads
 fetchItems();

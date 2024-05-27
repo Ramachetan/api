@@ -8,11 +8,9 @@ import schemas
 
 app = FastAPI()
 
-origins = ["*"]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -74,3 +72,8 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
     db.delete(db_item)
     db.commit()
     return {"message": "Item deleted"}
+
+@app.get("/items/search/{query}", response_model=List[schemas.Item])
+def search_items(query: str, db: Session = Depends(get_db)):
+    items = db.query(ORMItem).filter(ORMItem.name.contains(query)).all()
+    return items
