@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <img src="https://images.miraclesoft.com/miracle-logo-white.svg" alt="Miracle Software Systems Logo" class="logo logo-center">
+        <h1>Inventory Manager</h1>
+        <div id="message"></div>
+        <div class="form-group">
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="number" id="itemPrice" placeholder="Item Price">
+            <button onclick="createItem()">Create Item</button>
+        </div>
+        <!-- <div class="form-group">
+            <button onclick="fetchItems()">List Items</button>
+        </div> -->
+        <div id="itemsList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
